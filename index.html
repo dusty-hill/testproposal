@@ -448,6 +448,112 @@
     .leed-tier.platinum { background: rgba(255,255,255,0.18); color: #e0f2fe; }
     .leed-tier.featured { outline: 2px solid #6ee7a8; }
 
+    /* ── TRACK RECORD ── */
+    .track-section {
+      background: var(--navy);
+      padding: 72px 40px;
+    }
+
+    .track-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .track-section .section-title {
+      color: var(--white);
+    }
+
+    .track-section .section-lead {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 200px;
+      gap: 12px;
+    }
+
+    .track-card {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      cursor: default;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .track-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    /* When a real photo is supplied, darken it for readability */
+    .track-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+      border-radius: 10px;
+    }
+
+    .track-card--large {
+      grid-column: span 2;
+    }
+
+    .track-card__inner {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 22px;
+    }
+
+    .track-card__label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 4px;
+    }
+
+    .track-card__name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .track-card--large .track-card__name {
+      font-size: 1.45rem;
+    }
+
+    .track-card__location {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .track-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+      }
+      .track-section { padding: 48px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .track-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 150px;
+      }
+      .track-card--large { grid-column: span 1; }
+    }
+
     /* ── TESTIMONIAL ── */
     .testimonial-wrap {
       background: var(--navy);
@@ -716,9 +822,8 @@
 <section class="hero">
   <div class="hero-eyebrow">The Premier Experience for C&amp;D Recycling in the Bay Area</div>
   <h1>
-    The Only Fully Integrated<br>
-    <span class="highlight">C&amp;D Recycling Partner</span><br>
-    You'll Ever Need.
+    The C&amp;D Recycler<br>
+    <span class="highlight">Built for Builders</span>
   </h1>
   <p class="hero-sub">
     We own the trucks. We run the facility. We produce all diversion documentation in-house. No subcontractors, no handoffs, no data you can't defend. When close-out comes, Premier's documentation survives any LEED review, any jurisdictional audit, and any permit sign-off — without exception.
@@ -999,6 +1104,113 @@
         <div class="testimonial-author">Ken Peterson</div>
         <div class="testimonial-company">Devcon Construction</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TRACK RECORD -->
+<!-- ══════════════════════════════════════════ -->
+<section class="track-section">
+  <div class="track-inner">
+    <div class="section-eyebrow">Our Track Record</div>
+    <h2 class="section-title">The Bay Area's Most Iconic Projects. We Did the Recycling.</h2>
+    <p class="section-lead">
+      From landmark infrastructure to world-class corporate campuses, Premier has handled C&amp;D recycling on some of the most demanding, high-profile projects in the region.
+    </p>
+
+    <div class="track-grid">
+
+      <!-- Bay Bridge — large feature card -->
+      <div class="track-card track-card--large" style="background-image: url('track_bay_bridge.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Infrastructure</div>
+          <div class="track-card__name">Bay Bridge</div>
+          <div class="track-card__location">San Francisco–Oakland</div>
+        </div>
+      </div>
+
+      <!-- Levi's Stadium -->
+      <div class="track-card" style="background-image: url('track_levis_stadium.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Sports &amp; Entertainment</div>
+          <div class="track-card__name">Levi's Stadium</div>
+          <div class="track-card__location">Santa Clara</div>
+        </div>
+      </div>
+
+      <!-- Avaya Stadium -->
+      <div class="track-card" style="background-image: url('track_avaya_stadium.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Sports &amp; Entertainment</div>
+          <div class="track-card__name">Avaya Stadium</div>
+          <div class="track-card__location">San Jose</div>
+        </div>
+      </div>
+
+      <!-- Apple HQ — large feature card -->
+      <div class="track-card track-card--large" style="background-image: url('track_apple_hq.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Corporate Campus</div>
+          <div class="track-card__name">Apple Headquarters</div>
+          <div class="track-card__location">Cupertino</div>
+        </div>
+      </div>
+
+      <!-- Google Borreagas -->
+      <div class="track-card" style="background-image: url('track_google.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Corporate Campus</div>
+          <div class="track-card__name">Google Borreagas</div>
+          <div class="track-card__location">Sunnyvale</div>
+        </div>
+      </div>
+
+      <!-- Visa Mission Rock -->
+      <div class="track-card" style="background-image: linear-gradient(160deg, #1a1020 0%, #3a1f5c 100%);">
+        <div class="track-card__inner">
+          <div class="track-card__label">Mixed-Use Development</div>
+          <div class="track-card__name">Visa Mission Rock</div>
+          <div class="track-card__location">San Francisco</div>
+        </div>
+      </div>
+
+      <!-- Adobe -->
+      <div class="track-card" style="background-image: url('track_adobe.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Corporate Office</div>
+          <div class="track-card__name">Adobe Building</div>
+          <div class="track-card__location">Downtown San Jose</div>
+        </div>
+      </div>
+
+      <!-- Caribbean Creative Campus — large feature card -->
+      <div class="track-card track-card--large" style="background-image: linear-gradient(160deg, #0d2a2a 0%, #1a5c5c 100%);">
+        <div class="track-card__inner">
+          <div class="track-card__label">Creative Campus</div>
+          <div class="track-card__name">Caribbean Creative Campus</div>
+          <div class="track-card__location">Sunnyvale</div>
+        </div>
+      </div>
+
+      <!-- Santana Row -->
+      <div class="track-card" style="background-image: url('track_santana_row.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Mixed-Use / Retail</div>
+          <div class="track-card__name">Santana Row</div>
+          <div class="track-card__location">San Jose</div>
+        </div>
+      </div>
+
+      <!-- UC Santa Cruz Kresge -->
+      <div class="track-card" style="background-image: url('track_kresge.jpg');">
+        <div class="track-card__inner">
+          <div class="track-card__label">Higher Education</div>
+          <div class="track-card__name">UC Santa Cruz — Kresge College</div>
+          <div class="track-card__location">Santa Cruz</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
